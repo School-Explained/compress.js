@@ -31,6 +31,10 @@ export default class Compress {
     return Promise.all(files.map((file) => compressFile(file, options)));
   }
 
+  static async compressPhoto(photo, file) {
+    return compressImage(photo)(await File.load(file));
+  }
+
   static convertBase64ToFile(base64, mime) {
     return Converter.base64ToFile(base64, mime);
   }
