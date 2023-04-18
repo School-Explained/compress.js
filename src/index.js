@@ -1,4 +1,4 @@
-// Support regenerator-runtime globally.
+/*Support regenerator-runtime globally.*/
 import "regenerator-runtime/runtime.js";
 
 import Base64 from "./core/base64.js";
@@ -8,9 +8,9 @@ import Image from "./core/image.js";
 import Photo from "./core/photo.js";
 import Rotate from "./core/rotate.js";
 
-// Supported input formats
-// image/png, image/jpeg, image/jpg, image/gif, image/bmp, image/tiff, image/x-icon,  image/svg+xml, image/webp, image/xxx
-// image/png, image/jpeg, image/webp
+/*Supported input formats
+image/png, image/jpeg, image/jpg, image/gif, image/bmp, image/tiff, image/x-icon,  image/svg+xml, image/webp, image/xxx
+image/png, image/jpeg, image/webp*/
 export default class Compress {
   attach(el, options) {
     return new Promise((resolve) => {
@@ -64,7 +64,7 @@ function loopCompression(
 }
 
 async function compressFile(file, options) {
-  // Create a new photo object
+  /*Create a new photo object*/
   const photo = new Photo(options);
   photo.start = window.performance.now();
   photo.alt = file.name;
@@ -78,11 +78,11 @@ async function compressFile(file, options) {
 function compressImage(photo) {
   return async (src) => {
     const img = await Image.load(src);
-    // Store the initial dimensions
+    /*Store the initial dimensions*/
     photo.startWidth = img.naturalWidth;
     photo.startHeight = img.naturalHeight;
 
-    // Resize the image
+    /*Resize the image*/
     if (photo.resize) {
       const { width, height } = Image.resize(photo.maxWidth, photo.maxHeight)(
         img.naturalWidth,
@@ -115,12 +115,12 @@ function compressImage(photo) {
 
     photo.finalSize = Base64.size(base64);
     photo.end = window.performance.now();
-    const difference = photo.end - photo.start; // in ms
+    const difference = photo.end - photo.start;/*in ms*/
 
     return {
       data: Base64.data(base64),
       prefix: photo.base64prefix,
-      elapsedTimeInSeconds: difference / 1000, // in seconds
+      elapsedTimeInSeconds: difference / 1000, /*in seconds*/
       alt: photo.alt,
       initialSizeInMb: Converter.size(photo.startSize).MB,
       endSizeInMb: Converter.size(photo.finalSize).MB,

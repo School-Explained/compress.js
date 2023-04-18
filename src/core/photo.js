@@ -1,4 +1,3 @@
-// The photo model
 class Photo {
   constructor({
     quality = 0.75,
@@ -17,7 +16,7 @@ class Photo {
     this.startWidth = null;
     this.startHeight = null;
 
-    // size in MB
+    /*size in MB*/
     this.size = size * 1000 * 1000;
     this.endSize = null;
     this.endWidth = null;

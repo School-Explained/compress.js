@@ -25,38 +25,38 @@ const imageToCanvas = (width, height, orientation) => {
     }
     switch (orientation) {
       case 2:
-        // horizontal flip
+        /*horizontal flip*/
         context.translate(width, 0);
         context.scale(-1, 1);
         break;
       case 3:
-        // 180° rotate left
+        /*180° rotate left*/
         context.translate(width, height);
         context.rotate(Math.PI);
         break;
       case 4:
-        // vertical flip
+        /*vertical flip*/
         context.translate(0, height);
         context.scale(1, -1);
         break;
       case 5:
-        // vertical flip + 90 rotate right
+        /*vertical flip + 90 rotate right*/
         context.rotate(0.5 * Math.PI);
         context.scale(1, -1);
         break;
       case 6:
-        // 90° rotate right
+        /*90° rotate right*/
         context.rotate(0.5 * Math.PI);
         context.translate(0, -height);
         break;
       case 7:
-        // horizontal flip + 90 rotate right
+        /*horizontal flip + 90 rotate right*/
         context.rotate(0.5 * Math.PI);
         context.translate(width, -height);
         context.scale(-1, 1);
         break;
       case 8:
-        // 90° rotate left
+        /*90° rotate left*/
         context.rotate(-0.5 * Math.PI);
         context.translate(-width, 0);
         break;
@@ -71,7 +71,7 @@ const imageToCanvas = (width, height, orientation) => {
 };
 
 const canvasToBase64 = (canvas, quality = 0.75) => {
-  // in order to compress the final image format has to be jpeg
+  /*in order to compress the final image format has to be jpeg*/
   const base64 = canvas.toDataURL("image/jpeg", quality);
   return base64;
 };

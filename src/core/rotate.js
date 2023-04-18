@@ -1,4 +1,4 @@
-// https://stackoverflow.com/questions/20600800/js-client-side-exif-orientation-rotate-and-mirror-jpeg-images/31273162#31273162
+/*https://stackoverflow.com/questions/20600800/js-client-side-exif-orientation-rotate-and-mirror-jpeg-images/31273162#31273162*/
 
 const orientation = (file) => {
   return new Promise((resolve) => {

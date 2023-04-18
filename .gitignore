@@ -11,3 +11,4 @@ coverage/
 tags
 
 .idea/
+.DS_Store
